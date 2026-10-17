@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laporan Desainer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-wrapper">
+      <header class="top-bar">
+        <div class="logo-area">
+          <span class="logo-text">LAPORAN DESAINER</span>
+        </div>
+        <div class="nav-links">
+          <span>01 / GENERATOR V1.0</span>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <div class="hero-section">
+          <div class="hero-title-area">
+            <img src="icon.png" class="hero-logo-img" alt="Logo BIG">
+            <h1>Desainer</h1>
+          </div>
+          <p>Sistem automasi penyusunan laporan harian.</p>
+        </div>
+
+        <div class="workspace-grid">
+          <!-- Kolom Kiri: Form Dinamis -->
+          <div class="panel input-panel">
+            <div class="panel-header">
+              <input type="text" id="designer-name" class="panel-label-input" placeholder="NAMA DESAINER..." autocomplete="off">
+              <div class="header-actions">
+                <button id="add-date-btn" class="outline-btn">+ TANGGAL BARU</button>
+              </div>
+            </div>
+            
+            <div id="form-container" class="panel-body"></div>
+
+            <div class="panel-footer">
+              <button id="generate-btn" class="primary-btn">LAUNCH GENERATOR →</button>
+            </div>
+          </div>
+
+          <!-- Kolom Kanan: Hasil -->
+          <div class="panel output-panel">
+            <div class="panel-header">
+              <span class="panel-label">HASIL LAPORAN</span>
+              <span id="status-badge" class="badge hidden">SYS: COPIED TO CLIPBOARD</span>
+            </div>
+            <pre id="report-output">Awaiting input... System standby.</pre>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- ELEMEN SCROLLBAR KUSTOM ALA ARTCRAFT (METERAN) -->
+    <div id="custom-scrollbar">
+      <div id="scroll-track"></div>
+      <div id="scroll-thumb">
+        <div class="scroll-line"></div>
+        <span id="scroll-percentage">000%</span>
+      </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

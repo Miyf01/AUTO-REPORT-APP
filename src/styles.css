@@ -1,0 +1,154 @@
+/* Sembunyikan scrollbar bawaan sistem sepenuhnya */
+::-webkit-scrollbar { display: none; }
+body { -ms-overflow-style: none; scrollbar-width: none; }
+
+:root {
+  --bg-dark: #0a0a0a;
+  --bg-panel: #111111;
+  --text-main: #f5f5f5;
+  --text-muted: #888888;
+  --border-color: #2a2a2a;
+  --border-hover: #666666;
+  --accent-white: #ffffff;
+  --artcraft-blue: #4d9fff; /* Warna biru ala meteran Artcraft */
+}
+
+body { margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); font-family: 'Inter', sans-serif; min-height: 100vh; overflow-y: auto; overflow-x: hidden; }
+
+/* Beri ruang di sebelah kanan agar tidak tertutup meteran */
+.app-wrapper { display: flex; flex-direction: column; min-height: 100vh; padding-right: 55px; }
+
+.top-bar { display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; border-bottom: 1px solid var(--border-color); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
+.logo-area { display: flex; align-items: center; gap: 10px; color: var(--text-main); font-weight: 600; }
+
+.main-content { flex-grow: 1; display: flex; flex-direction: column; padding: 0 30px 20px 30px; }
+
+.hero-section { padding: 16px 0; border-bottom: 1px solid var(--border-color); }
+.hero-title-area { display: flex; align-items: center; gap: 18px; margin-bottom: 4px; }
+.hero-logo-img { height: 85px; width: auto; object-fit: contain; }
+.hero-section h1 { margin: 0; font-size: 50px; font-weight: 800; letter-spacing: -1.5px; line-height: 1; text-transform: none; }
+.hero-section p { margin: 0; color: var(--text-muted); font-size: 13px; max-width: 600px; line-height: 1.4; }
+
+.workspace-grid { display: flex; flex-grow: 1; margin-top: 20px; border: 1px solid var(--border-color); background-color: var(--bg-panel); min-height: 400px; }
+.panel { flex: 1; display: flex; flex-direction: column; }
+.input-panel { border-right: 1px solid var(--border-color); }
+.panel-header { padding: 15px 20px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
+.panel-label { font-size: 10px; letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase; }
+
+.panel-label-input { font-size: 11px; letter-spacing: 2px; color: var(--accent-white); text-transform: uppercase; background: transparent; border: none; outline: none; font-family: 'Inter', sans-serif; font-weight: 800; width: 250px; padding: 2px 0; border-bottom: 1px dashed var(--border-color); transition: 0.2s; }
+.panel-label-input:focus { border-bottom: 1px solid var(--accent-white); }
+.panel-label-input::placeholder { color: var(--text-muted); font-weight: 600; }
+
+.header-actions { display: flex; gap: 10px; }
+.outline-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-muted); font-size: 10px; padding: 5px 10px; cursor: pointer; font-weight: 600; letter-spacing: 1px; transition: 0.2s; }
+.outline-btn:hover { color: var(--accent-white); border-color: var(--accent-white); }
+.panel-body { flex-grow: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+
+.date-block { display: flex; flex-direction: column; gap: 10px; margin-bottom: 25px; }
+.date-header { display: flex; gap: 10px; align-items: center; }
+.date-select { flex-grow: 1; background-color: var(--bg-dark); border: 1px solid var(--border-color); color: var(--accent-white); padding: 10px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; outline: none; cursor: pointer; appearance: none; }
+.date-select option { background-color: var(--bg-panel); color: var(--text-main); }
+.date-select:focus { border-color: #555; }
+
+.add-order-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-muted); padding: 9px 15px; font-size: 10px; font-weight: 600; letter-spacing: 1px; cursor: pointer; transition: 0.2s; }
+.add-order-btn:hover { border-color: var(--accent-white); color: var(--accent-white); }
+.order-list { display: flex; flex-direction: column; gap: 10px; padding-left: 15px; border-left: 2px solid var(--border-color); margin-left: 5px; }
+
+.order-row { display: flex; gap: 8px; align-items: center; }
+.order-name { flex: 2; background-color: var(--bg-dark); border: 1px solid var(--border-color); color: var(--text-main); padding: 10px; font-family: 'Consolas', monospace; font-size: 12px; outline: none; }
+.order-code { width: 75px; background-color: var(--bg-dark); border: 1px solid var(--border-color); color: var(--text-main); padding: 10px 5px; font-family: 'Consolas', monospace; font-size: 12px; outline: none; cursor: pointer; text-align: center; appearance: none; transition: border-color 0.2s; }
+.order-code:hover { border-color: var(--border-hover); }
+.order-num { width: 75px; background-color: var(--bg-dark); border: 1px solid var(--border-color); color: var(--text-main); padding: 10px; font-family: 'Consolas', monospace; font-size: 12px; outline: none; text-align: center; }
+.order-status { width: 110px; background-color: var(--bg-dark); border: 1px solid var(--border-color); color: var(--text-main); padding: 10px; font-family: 'Consolas', monospace; font-size: 12px; outline: none; cursor: pointer; appearance: none; text-align: center; transition: border-color 0.2s; }
+.order-status:hover { border-color: var(--border-hover); }
+
+.order-code option, .order-status option { background-color: var(--bg-panel); color: var(--text-main); }
+.order-name:focus, .order-code:focus, .order-num:focus, .order-status:focus { border-color: var(--accent-white); }
+.del-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-muted); padding: 9px 12px; cursor: pointer; font-size: 12px; transition: 0.2s; }
+.del-btn:hover { border-color: #ff4444; color: #ff4444; }
+
+pre { flex-grow: 1; margin: 0; padding: 20px; background-color: transparent; color: var(--text-main); font-family: 'Consolas', monospace; font-size: 13px; overflow-y: auto; line-height: 1.5; }
+.panel-footer { border-top: 1px solid var(--border-color); padding: 20px; }
+.primary-btn { background-color: var(--text-main); color: var(--bg-dark); border: none; padding: 15px 24px; font-size: 12px; font-weight: 800; letter-spacing: 1px; cursor: pointer; transition: all 0.2s ease; width: 100%; text-align: left; display: flex; justify-content: space-between; }
+.primary-btn:hover { background-color: #d1d1d1; }
+.primary-btn:disabled { background-color: var(--border-color); color: var(--text-muted); cursor: not-allowed; }
+.badge { font-size: 10px; letter-spacing: 1px; color: #00ff00; border: 1px solid #00ff00; padding: 4px 8px; transition: opacity 0.3s; }
+.badge.hidden { opacity: 0; }
+
+/* =========================================
+   CUSTOM SCROLLBAR ARTCRAFT (METERAN)
+========================================= */
+#custom-scrollbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 55px;
+  height: 100vh;
+  pointer-events: none; /* Agar tidak mengganggu saat klik elemen web */
+  z-index: 9999;
+  border-left: 1px solid var(--border-color);
+  background-color: var(--bg-dark);
+}
+
+#scroll-track {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Style Garis Penggaris (Ruler Ticks) */
+.ruler-tick {
+  position: absolute;
+  right: 0;
+  height: 1px;
+  background-color: #333333;
+  width: 8px;
+}
+.ruler-tick.large-tick {
+  width: 18px;
+  background-color: #666666;
+}
+.ruler-num {
+  position: absolute;
+  right: 25px;
+  top: -6px;
+  color: #777777;
+  font-family: 'Consolas', monospace;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+/* Indikator penunjuk (biru) */
+#scroll-thumb {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  transform: translateY(0);
+  transition: transform 0.05s linear; /* Halus */
+  z-index: 10;
+}
+
+/* Garis biru menyala ala radar */
+.scroll-line {
+  width: 45px;
+  height: 2px;
+  background-color: var(--artcraft-blue);
+  box-shadow: 0 0 8px var(--artcraft-blue);
+}
+
+/* Teks persentase di bawah garis biru */
+#scroll-percentage {
+  font-family: 'Consolas', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--artcraft-blue);
+  letter-spacing: 1px;
+  margin-top: 4px;
+  margin-right: 5px;
+}
