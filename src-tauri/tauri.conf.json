@@ -1,7 +1,7 @@
 {
   "productName": "Laporan Desainer BIG",
   "version": "0.1.0",
-  "identifier": ".",
+  "identifier": "com.laporandesainer.big",
   "build": {
     "frontendDist": "../src"
   },
@@ -19,7 +19,15 @@
     }
   },
   "bundle": {
-    "active": false,
-    "targets": "all"
+    "active": true,
+    "targets": "all",
+    "publisher": "Desainer BIG",
+    "icon": [
+      "icons/icon.ico",
+      "icons/icon.png",
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png"
+    ]
   }
 }
